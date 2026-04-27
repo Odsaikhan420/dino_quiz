@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background-color: #0b0f18;
+    --backgroud-color: #e8edf5;
+    --genshin-gold: #d4af37;
+    --genshin-gold-dim: rgba(212, 175, 55, 0.35);
+    --genshin-teal: #5ec4b6;
+    --genshin-panel: rgba(18, 26, 40, 0.92);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Genshin-inspired atmospheric backdrop */
+.quiz-genshin-bg {
+    background-color: #070a10;
+    background-image:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(94, 196, 182, 0.12), transparent 50%),
+        radial-gradient(ellipse 80% 50% at 100% 50%, rgba(212, 175, 55, 0.06), transparent 45%),
+        radial-gradient(ellipse 60% 40% at 0% 80%, rgba(80, 140, 200, 0.08), transparent 40%),
+        linear-gradient(180deg, #0c1220 0%, #0a0e16 40%, #06080f 100%);
+    background-attachment: fixed;
+}
+
+.quiz-genshin-panel {
+    background: var(--genshin-panel);
+    border: 1px solid var(--genshin-gold-dim);
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.08) inset,
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 60px -20px rgba(94, 196, 182, 0.15);
+}
+
+.quiz-genshin-panel--active {
+    border-color: rgba(94, 196, 182, 0.45);
+    box-shadow:
+        0 0 0 1px rgba(94, 196, 182, 0.12) inset,
+        0 0 40px -8px rgba(94, 196, 182, 0.2),
+        0 25px 50px -12px rgba(0, 0, 0, 0.55);
 }
