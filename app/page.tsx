@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Hero3D from "./Hero3D";
+import { Briefcase } from "lucide-react";
 
 type Letter = "A" | "B" | "C" | "D";
 
@@ -190,7 +191,7 @@ export default function Home() {
                     <h1
                         className={`${fontDisplay} mt-3 text-2xl font-bold tracking-wide text-[#f2e6c9] drop-shadow-[0_0_24px_rgba(212,175,55,0.25)] md:text-[1.65rem]`}
                     >
-                        Чи ямар IT ажилд тохирох вэ?
+                        IT-н ямар ажил чамд тохирох вэ?
                     </h1>
                 </header>
 
@@ -248,15 +249,24 @@ export default function Home() {
                                 ))}
                             </ul>
                         </div>
-                        <div className="mt-6">
-                            <p className="text-sm font-semibold text-[#e8dfd0]">👉 Тохирох ажил:</p>
-                            <ul className="mt-2 space-y-1.5 text-sm text-[#a8b8c8]">
+                        <div className="mt-6 rounded-2xl bg-[#1f2933] p-5 shadow-lg border border-[#2a3542]">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Briefcase className="w-4 h-4 text-[#c9a227]" />
+                                <p className="text-sm font-semibold text-[#e8dfd0]">Тохирох ажил</p>
+                            </div>
+
+                            <div className="h-px bg-[#2a3542] mb-4" />
+
+                            <ul className="space-y-2">
                                 {result.jobs.map((job) => (
-                                    <li key={job} className="flex gap-2">
-                                        <span className="text-[#c9a227]" aria-hidden>
-                                            ▸
+                                    <li
+                                        key={job}
+                                        className="group flex items-center gap-3 rounded-lg px-3 py-2 bg-[#24303d] hover:bg-[#2d3b4a] transition-all duration-200"
+                                    >
+                                        <span className="w-2 h-2 rounded-full bg-[#c9a227] group-hover:scale-125 transition-transform" />
+                                        <span className="text-sm text-[#a8b8c8] group-hover:text-[#e8dfd0] transition-colors">
+                                            {job}
                                         </span>
-                                        <span>{job}</span>
                                     </li>
                                 ))}
                             </ul>
